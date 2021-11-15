@@ -1,2 +1,8 @@
 .python-version
 *.pyc
+misc.xml
+modules.xml
+profiles_settings.xml
+vcs.xml
+*.iml
+**/.hypothesis
