@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "hello_gm"
+version = "0.1.0"
+description = ""
+authors = ["Chris Ramacciotti <chris@rama.io>"]
+
+[tool.poetry.dependencies]
+python = "3.9.7"
+SQLAlchemy = "1.4.27"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core==1.1.11"]
+build-backend = "poetry.core.masonry.api"
