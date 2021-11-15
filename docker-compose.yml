@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: "bitnami/postgresql:12"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: api_password
+      POSTGRES_DB: gm
+    volumes:
+      - gm-db-data:/var/lib/postgresql/data
+volumes:
+  gm-db-data: {}
