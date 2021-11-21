@@ -6,9 +6,8 @@ query = QueryType()
 
 
 @query.field("patient")
-def resolve_patient(_, info: GraphQLResolveInfo):
-    patient_id = info.context["patient"].id
-    patient = patient_service.get_patient_by_id()
+def resolve_patient(*_, id: int):
+    patient = patient_service.get_patient_by_id(id)
     return patient
 
 

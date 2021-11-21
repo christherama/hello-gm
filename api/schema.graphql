@@ -1,5 +1,5 @@
 type Query {
-    patient: Patient
+    patient(id: Int!): Patient
 }
 
 type Patient {
