@@ -7,6 +7,7 @@ ARG POETRY_VERSION=1.1.11
 RUN apk update && apk add curl libffi-dev gcc g++ libc-dev openssl-dev
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/${POETRY_VERSION}/get-poetry.py | python
 ENV PATH="${PATH}:/root/.poetry/bin"
+ENV PYTHONPATH=/usr/app
 
 WORKDIR /usr/app
 
@@ -20,3 +21,5 @@ RUN apk del libffi-dev gcc g++ libc-dev openssl-dev
 
 # Copy source
 COPY . .
+
+ENTRYPOINT poetry run

@@ -1,5 +1,20 @@
 version: "3"
 services:
+  api:
+    build: .
+    command: uvicorn asgi:application --app-dir api
+    volumes:
+      - .:/usr/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=gm
+      - DB_PORT=5432
+      - DB_USER=api_user
+      - DB_PASS=api_password
   db:
     image: "bitnami/postgresql:12"
     ports:
@@ -12,3 +27,4 @@ services:
       - gm-db-data:/var/lib/postgresql/data
 volumes:
   gm-db-data: {}
+
