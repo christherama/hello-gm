@@ -13,10 +13,12 @@ def get_patient_by_id(id: int) -> domain.Patient:
     """
     session = Session()
     try:
-        patient_model = session.query(models.Patient).filter(models.Patient.id==id).one()
+        patient_model = (
+            session.query(models.Patient).filter(models.Patient.id == id).one()
+        )
     except NoResultFound:
         raise errors.PatientNotFound
-    
+
     return _patient_from_model(patient_model)
 
 
@@ -26,4 +28,3 @@ def _patient_from_model(patient: models.Patient) -> domain.Patient:
         first_name=patient.first_name,
         last_name=patient.last_name,
     )
-

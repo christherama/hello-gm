@@ -20,11 +20,9 @@ def test__get_patient__responds_with_patient_if_exists(mock_patient_service, sch
            }}
         }}
     """
-    data = {
-        "query": query
-    }
+    data = {"query": query}
     success, response = graphql_sync(schema, data)
-    
+
     assert success
 
     patient = response["data"]["patient"]
@@ -44,11 +42,9 @@ def test__get_patient__responds_with_404_if_not_exists(mock_patient_service, sch
            }}
         }}
     """
-    data = {
-        "query": query
-    }
+    data = {"query": query}
     success, response = graphql_sync(schema, data)
-    
+
     assert success
     assert response["data"]["patient"] is None
 
@@ -59,4 +55,3 @@ def schema():
     from ..controller import resolvers
 
     return make_executable_schema(type_defs, *resolvers)
-

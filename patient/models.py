@@ -11,21 +11,6 @@ class Patient:
     __tablename__ = "patient"
     __sa_dataclass_metadata_key__ = "sa"
 
-    id: int = field(
-        init=False,
-        metadata={
-            "sa": Column(Integer, primary_key=True)
-        }
-    )
-    first_name: str = field(
-        init=False,
-        metadata={
-            "sa": Column(String(50))
-        }
-    )
-    last_name: str = field(
-        init=False,
-        metadata={
-            "sa": Column(String(50))
-        }
-    )
+    id: int = field(init=False, metadata={"sa": Column(Integer, primary_key=True)})
+    first_name: str = field(init=False, metadata={"sa": Column(String(50))})
+    last_name: str = field(init=False, metadata={"sa": Column(String(50))})
