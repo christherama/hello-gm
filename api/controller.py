@@ -1,14 +1,16 @@
 from ariadne import ObjectType, QueryType
 from graphql import GraphQLResolveInfo
-from patient import domain, service as patient_service
+from patient import domain, errors, service as patient_service
 
 query = QueryType()
 
 
 @query.field("patient")
 def resolve_patient(*_, id: int):
-    patient = patient_service.get_patient_by_id(id)
-    return patient
+    try:
+        return patient_service.get_patient_by_id(id)
+    except errors.PatientNotFound:
+        return None
 
 
 patient = ObjectType("Patient")

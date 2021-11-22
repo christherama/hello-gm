@@ -14,7 +14,7 @@ def test__get_patient_by_id__returns_patient_if_exists(patient_id: int):
             first_name="Chris",
             last_name="Ramacciotti",
         )
-        mock_session.return_value.query.return_value.one.return_value = patient_model
+        mock_session.return_value.query.return_value.filter.return_value.one.return_value = patient_model
         patient = service.get_patient_by_id(patient_id)
 
         assert patient == domain.Patient(
