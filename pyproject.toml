@@ -11,6 +11,7 @@ uvicorn = "0.15.0"
 ariadne = "^0.13.0"
 pytest = "^6.2.5"
 psycopg2-binary = "^2.9.2"
+alembic = "^1.7.5"
 
 [tool.poetry.dev-dependencies]
 hypothesis = "^6.24.4"

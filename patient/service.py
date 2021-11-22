@@ -1,4 +1,4 @@
-from api.db import Session
+from conf.db import Session
 from patient import domain, models
 
 
