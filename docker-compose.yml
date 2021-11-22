@@ -2,7 +2,7 @@ version: "3"
 services:
   api:
     build: .
-    command: uvicorn asgi:application --app-dir api
+    command: /usr/app/bin/wait-for-it db:5432 -- /usr/app/bin/start-server
     volumes:
       - .:/usr/app
     ports:

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd patient && alembic upgrade head
+cd ..
+uvicorn asgi:application --app-dir api --host 0.0.0.0
+
